@@ -5,17 +5,19 @@ import java.util.Map;
 
 public class SequenceCache {
 
-    private final Map<Integer,Worker> allWorkers;
+    private final Map<Integer,Worker> cache;
 
     public SequenceCache(){
-        allWorkers = new HashMap<>();
+        cache = new HashMap<>();
     }
 
-    public int length(int length){
-        if(!allWorkers.containsKey(length)){
-            allWorkers.put(length,new Worker(length));
+    public int length(int value){
+        if(!cache.containsKey(value)){
+            cache.put(value,new Worker(value));
         }
-        return allWorkers.get(length).sequence();
+
+        final Worker worker = cache.get(value);
+        return worker.sequence();
     }
 
 }
