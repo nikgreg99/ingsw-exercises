@@ -1,2 +1,2 @@
-# ingsw-exercises
-Exercises of Software Enginereering  II course at SUPSI
+# Software Engineering 2 Exercises
+Exercises of Software Enginereering II course at SUPSI
