@@ -2,7 +2,7 @@ package ingsw.serie1.es2;
 
 import java.util.Objects;
 
-public class Fraction {
+public class Fraction{
 
     private long num;
     private long den;
@@ -44,17 +44,16 @@ public class Fraction {
 
     public Fraction mul(Fraction f){
         long num = this.num * f.num;
-        long dem = this.den * f.den;
-        return new Fraction(num,dem);
+        long den = this.den * f.den;
+        return new Fraction(num,den);
     }
 
     public Fraction div(Fraction f){
         if(f.num == 0){
             throw new ArithmeticException("Cannot divide by zero");
         }
-        long num = this.num * f.den;
-        long dem = this.den * f.num;
-        return new Fraction(num,dem);
+        Fraction reverse = new Fraction(f.den,f.num);
+        return this.mul(reverse);
     }
 
     @Override

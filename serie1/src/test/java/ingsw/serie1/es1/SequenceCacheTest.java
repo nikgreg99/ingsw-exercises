@@ -3,8 +3,7 @@ package ingsw.serie1.es1;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class SequenceCacheTest {
 
@@ -22,12 +21,6 @@ public class SequenceCacheTest {
 
     @Test
     public void testLengthException(){
-        try{
-            sequenceCacheTest.length(-2);
-            fail();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        assertThrows(IllegalArgumentException.class,() -> sequenceCacheTest.length(-2));
     }
 }

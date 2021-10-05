@@ -3,8 +3,7 @@ package ingsw.serie1.es2;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
 
 public class FractionTest {
 
@@ -14,6 +13,27 @@ public class FractionTest {
     public void setUp(){
         f1 = new Fraction(2,3);
         f2 = new Fraction(1,2);
+    }
+
+    @Test
+    public void testGcd(){
+        assertEquals(5,Fraction.gcd(5,0));
+        assertEquals(Fraction.gcd(2,3),Fraction.gcd(3,2));
+        assertEquals(3,Fraction.gcd(3,6));
+    }
+
+    @Test
+    public void testLcm(){
+        assertEquals(0,Fraction.lcm(0,2));
+        assertEquals(Fraction.lcm(2,3),Fraction.lcm(3,2));
+        assertEquals(6,Fraction.lcm(2,3));
+    }
+
+    @Test
+    public void testEquals(){
+        assertEquals(f1,new Fraction(2,3));
+        assertEquals(f2,new Fraction(1,2));
+        assertFalse(f1.equals(f2));
     }
 
     @Test
@@ -44,13 +64,12 @@ public class FractionTest {
 
     @Test
     public void testDivByZero(){
-        Fraction zeroFraction = new Fraction(0,4);
-        assertThrows(ArithmeticException.class,() -> f1.div(zeroFraction));
+        Fraction zero = new Fraction(0,4);
+        assertThrows(ArithmeticException.class,() -> f1.div(zero));
     }
 
     @Test
     public void testDiv(){
         assertEquals(new Fraction(4,3),f1.div(f2));
     }
-
 }
