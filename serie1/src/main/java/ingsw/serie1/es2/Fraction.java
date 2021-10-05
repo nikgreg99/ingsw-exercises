@@ -34,7 +34,7 @@ public class Fraction{
     public Fraction sum(Fraction f){
         long den = lcm(this.den,f.den);
         long num = (den / this.den * this.num) + (den / f.den * f.num);
-        return new Fraction(num,den);
+        return new Fraction(num,den).simplify();
     }
 
     public Fraction sub(Fraction f) {
@@ -45,7 +45,7 @@ public class Fraction{
     public Fraction mul(Fraction f){
         long num = this.num * f.num;
         long den = this.den * f.den;
-        return new Fraction(num,den);
+        return new Fraction(num,den).simplify();
     }
 
     public Fraction div(Fraction f){

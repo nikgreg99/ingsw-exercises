@@ -59,7 +59,7 @@ public class FractionTest {
 
     @Test
     public void testMul(){
-        assertEquals(new Fraction(2,6),f1.mul(f2));
+        assertEquals(new Fraction(1,3),f1.mul(f2));
     }
 
     @Test
