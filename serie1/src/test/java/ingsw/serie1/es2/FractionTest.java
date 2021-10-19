@@ -38,7 +38,8 @@ public class FractionTest {
 
     @Test
     public void testZeroDen(){
-        assertThrows(IllegalArgumentException.class,()-> new Fraction(1,0));
+        Exception exception = assertThrows(IllegalArgumentException.class,()-> new Fraction(1,0));
+        assertEquals("Denominator cannot be 0",exception.getMessage());
     }
 
     @Test
@@ -65,7 +66,8 @@ public class FractionTest {
     @Test
     public void testDivByZero(){
         Fraction zero = new Fraction(0,4);
-        assertThrows(ArithmeticException.class,() -> f1.div(zero));
+        Exception exception = assertThrows(ArithmeticException.class,() -> f1.div(zero));
+        assertEquals("Cannot divide by zero",exception.getMessage());
     }
 
     @Test
