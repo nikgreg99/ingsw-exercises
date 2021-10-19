@@ -19,7 +19,7 @@ public class ForwardIterator<T> implements MyIterator<T>{
 
     @Override
     public T nextElement() {
-        T obj =  list.get(index);
+        final T obj =  list.get(index);
         index++;
         return obj;
     }

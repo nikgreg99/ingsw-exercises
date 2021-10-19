@@ -19,9 +19,9 @@ public class BackwardIterator<T> implements MyIterator<T>{
 
     @Override
     public T nextElement() {
-        final T elem = list.get(index);
+        final T obj = list.get(index);
         index--;
-        return elem;
+        return obj;
     }
 
     @Override
