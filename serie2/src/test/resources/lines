@@ -1,0 +1,5 @@
+Create for this list two iterators.
+ForwardIterator  must  allow  the  iteration  on  the  list  from  the  first  to  the  last
+element,  whereas  BackwardIterator,  must  allow  the  iteration  from  the  last  to
+the first element.
+Both iterators must be implemented using following interface:
