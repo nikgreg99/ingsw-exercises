@@ -1,5 +1,7 @@
 package ch.supsi.es1;
 
+import ch.supsi.es1.list.IMyList;
+import ch.supsi.es1.list.MyList;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MyListTest {
 
-    private MyList<String> testMyList;
+    private IMyList<String> testMyList;
 
     @Before
     public void intiList(){

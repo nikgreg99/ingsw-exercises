@@ -1,13 +1,13 @@
 package ch.supsi.es1.iterator;
 
-import java.util.List;
+import ch.supsi.es1.list.IMyList;
 
-public class ForwardIterator<T> implements MyIterator<T>{
+public class ForwardIterator<T> implements IMyIterator<T> {
 
-    private final List<T> list;
+    private final IMyList<T> list;
     private int index;
 
-    public ForwardIterator(List<T> list) {
+    public ForwardIterator(IMyList<T> list) {
         this.list = list;
         index = 0;
     }
@@ -19,13 +19,13 @@ public class ForwardIterator<T> implements MyIterator<T>{
 
     @Override
     public T nextElement() {
-        final T obj =  list.get(index);
+        final T obj =  list.getElement(index);
         index++;
         return obj;
     }
 
     @Override
     public boolean hasMoreElements() {
-        return (index  <= (list.size() - 1));
+        return (index  <= (list.length() - 1));
     }
 }

@@ -1,7 +1,7 @@
 package ch.supsi.es2;
 
-import ch.supsi.es1.MyList;
-import ch.supsi.es1.iterator.MyIterator;
+import ch.supsi.es1.list.MyList;
+import ch.supsi.es1.iterator.IMyIterator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,7 +29,7 @@ public class LineReaderTest {
                 "Create for this list two iterators."
         };
         System.setOut(new PrintStream(new FileOutputStream("testLines")));
-        URL fileUri = LineReader.class.getClassLoader().getResource("lines");
+        URL fileUri = PrinterApp.class.getClassLoader().getResource("lines");
         InputStreamReader fileReader = new InputStreamReader(fileUri.openStream());
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -38,7 +38,7 @@ public class LineReaderTest {
             linesTest.addElement(line);
         }
 
-        MyIterator<String> lineBackwardIterator = linesTest.getBackwardIterator();
+        IMyIterator<String> lineBackwardIterator = linesTest.getBackwardIterator();
 
         int lineCounter = 0;
         String currentLine;

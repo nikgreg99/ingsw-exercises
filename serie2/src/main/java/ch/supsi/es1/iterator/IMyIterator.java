@@ -1,6 +1,6 @@
 package ch.supsi.es1.iterator;
 
-public interface MyIterator<T> {
+public interface IMyIterator<T> {
     void rewind();
     T nextElement();
     boolean hasMoreElements();
