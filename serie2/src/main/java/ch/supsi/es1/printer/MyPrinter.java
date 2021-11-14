@@ -38,13 +38,11 @@ public abstract class MyPrinter implements IPrinter{
                     currentLine = converter.convert(currentLine);
                 }
                 for(Writer writer: writerList){
-                    writer.write(currentLine);
-                    writer.write(System.lineSeparator());
+                    writer.write(currentLine + System.lineSeparator());
                     writer.flush();
                 }
         }
     }
-
 
     @Override
     public void addLineConverter(LineConverter lineConverter){
@@ -79,6 +77,6 @@ public abstract class MyPrinter implements IPrinter{
             }
         }
     }
-
+    
 }
 

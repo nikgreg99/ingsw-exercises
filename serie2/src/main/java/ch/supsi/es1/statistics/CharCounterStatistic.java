@@ -2,9 +2,7 @@ package ch.supsi.es1.statistics;
 
 import ch.supsi.es1.iterator.IMyIterator;
 
-
 import java.io.IOException;
-import java.io.Reader;
 
 public class CharCounterStatistic implements Statistic{
 
@@ -35,6 +33,6 @@ public class CharCounterStatistic implements Statistic{
 
     @Override
     public String report(int number) throws IOException {
-        return String.format("Statistic number %d: found %d '%c '",number, computeCharFrequency(), targetChar);
+        return String.format("Statistic number %d: found %d '%c' occurrences",number, computeCharFrequency(), targetChar);
     }
 }

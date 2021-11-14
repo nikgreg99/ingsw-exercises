@@ -1,7 +1,6 @@
-package ch.supsi.es1;
+package ch.supsi.es1.list;
 
-import ch.supsi.es1.list.IMyList;
-import ch.supsi.es1.list.MyList;
+
 import org.junit.Before;
 import org.junit.Test;
 

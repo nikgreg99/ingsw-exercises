@@ -1,6 +1,6 @@
 package ch.supsi.es2;
 
-
+import ch.supsi.es1.converter.LowerCaseLineConverter;
 import ch.supsi.es1.converter.UpperCaseLineConverter;
 import ch.supsi.es1.printer.IPrinter;
 import ch.supsi.es1.printer.MyBackwardPrinter;
@@ -14,15 +14,32 @@ import java.util.List;
 
 public class PrinterApp {
     public static void main(String[] args) throws IOException {
-        InputStream linesLocation = PrinterApp.class.getClassLoader().getResourceAsStream("lines");
-        IPrinter linePrinter = new MyBackwardPrinter(new InputStreamReader(linesLocation));
+        InputStream backwardLinesLocation = PrinterApp.class.getClassLoader().getResourceAsStream("lines");
+        InputStream forwardLinesLocation = PrinterApp.class.getClassLoader().getResourceAsStream("lines");
+        //Backward Printer
+        IPrinter backwardLinePrinter = new MyBackwardPrinter(new InputStreamReader(backwardLinesLocation));
+        //Display output to standard output
+        backwardLinePrinter.addLineConverter(new UpperCaseLineConverter());
+        backwardLinePrinter.addStream(new BufferedWriter(new OutputStreamWriter(System.out)));
+        backwardLinePrinter.print();
+        //Display the number of 'B' founded in the text
+        List<Statistic> backwardStatisticList = new ArrayList<>();
+        backwardStatisticList.add(new CharCounterStatistic('B'));
+        backwardLinePrinter.displayStatistics(backwardStatisticList);
 
-        linePrinter.addLineConverter(new UpperCaseLineConverter());
-        linePrinter.addStream(new BufferedWriter(new OutputStreamWriter(System.out)));
-        linePrinter.print();
+        System.out.println(System.lineSeparator());
 
-        List<Statistic> statisticList = new ArrayList<>();
-        statisticList.add(new CharCounterStatistic('B'));
-        linePrinter.displayStatistics(statisticList);
+        //Forward Printer
+        IPrinter forwardLinePrinter = new MyForwardPrinter(new InputStreamReader(forwardLinesLocation));
+        //Display output to standard output
+        forwardLinePrinter.addLineConverter(new LowerCaseLineConverter());
+        forwardLinePrinter.addStream(new BufferedWriter(new OutputStreamWriter(System.out)));
+        forwardLinePrinter.print();
+
+        List<Statistic> forwardStatisticList = new ArrayList<>();
+        forwardStatisticList.add(new CharCounterStatistic('i'));
+        forwardLinePrinter.displayStatistics(forwardStatisticList);
+
+
     }
 }
