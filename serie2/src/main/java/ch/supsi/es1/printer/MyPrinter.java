@@ -77,6 +77,6 @@ public abstract class MyPrinter implements IPrinter{
             }
         }
     }
-    
+
 }
 
