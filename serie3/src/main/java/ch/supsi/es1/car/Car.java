@@ -4,7 +4,7 @@ import ch.supsi.es1.body.IBody;
 import ch.supsi.es1.engine.IEngine;
 import ch.supsi.es1.frame.Frame;
 import ch.supsi.es1.interior.Interior;
-import ch.supsi.es1.wheel.Wheel;
+import ch.supsi.es1.wheel.IWheel;
 
 import com.google.inject.Inject;
 
@@ -19,11 +19,11 @@ public class Car {
     @Inject
     private Interior interior;
     @Inject
-    private Wheel[] wheels;
+    private IWheel[] wheels;
 
     public double getWeight(){
         double totalWeight = engine.getWeight() + body.getWeight() + frame.getWeight() + interior.getWeight();
-        for(Wheel wheel: wheels){
+        for(IWheel wheel: wheels){
             totalWeight+= wheel.getWeight();
         }
         return totalWeight;

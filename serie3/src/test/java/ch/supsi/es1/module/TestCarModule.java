@@ -9,7 +9,7 @@ import ch.supsi.es1.frame.Frame;
 import ch.supsi.es1.interior.Interior;
 import ch.supsi.es1.interior.LeatherInterior;
 import ch.supsi.es1.wheel.AlloyWheel;
-import ch.supsi.es1.wheel.Wheel;
+import ch.supsi.es1.wheel.IWheel;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -31,9 +31,9 @@ public class TestCarModule extends AbstractModule {
     }
 
     @Provides
-    Wheel[] provideWheels(){
+    IWheel[] provideWheels(){
         Injector tireInjector = Guice.createInjector(tireModule);
-        Wheel[] wheel = new Wheel[4];
+        IWheel[] wheel = new IWheel[4];
         for(int i = 0; i < wheel.length; i++){
             wheel[i] = tireInjector.getInstance(AlloyWheel.class);
         }

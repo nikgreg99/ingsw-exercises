@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class SequenceCache {
 
-    private final Map<Integer,Worker> cache;
+    private Map<Integer,Worker> cache;
 
     public SequenceCache(){
         cache = new HashMap<>();

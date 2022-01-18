@@ -3,7 +3,7 @@ package ch.supsi.es1.wheel;
 import ch.supsi.es1.tire.ITire;
 import com.google.inject.Inject;
 
-public class AlloyWheel extends Wheel{
+public class AlloyWheel implements IWheel {
 
     @Inject
     private ITire tire;
